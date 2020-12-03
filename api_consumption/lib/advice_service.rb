@@ -6,7 +6,11 @@ class AdviceService
     Faraday.get('https://api.adviceslip.com/advice')
   end
 
-  def random
+  def parse
     JSON.parse(conn.body)
+  end
+
+  def random
+    self.parse
   end
 end
