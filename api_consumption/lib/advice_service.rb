@@ -3,14 +3,20 @@ require 'json'
 
 class AdviceService
   def conn
-    Faraday.get('https://api.adviceslip.com/advice')
+    Faraday.new('https://api.adviceslip.com/advice')
   end
 
-  def parse
-    JSON.parse(conn.body)
+  def parse(body)
+    JSON.parse(body)
   end
 
   def random
-    self.parse
+    response = conn.get('/advice')
+    parse(response.body)
+  end
+
+  def search(query)
+    response = conn.get("/advice/search/#{query}")
+    parse(response.body)
   end
 end
