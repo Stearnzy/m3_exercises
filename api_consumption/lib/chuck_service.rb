@@ -24,4 +24,9 @@ class ChuckService
     response = conn.get('/jokes/categories')
     parse(response.body)
   end
+
+  def search(input)
+    response = conn.get("/jokes/search?query=#{input}")
+    parse(response.body)
+  end
 end
