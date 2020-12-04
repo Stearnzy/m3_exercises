@@ -14,4 +14,9 @@ class ChuckService
     response = conn.get('/jokes/random')
     parse(response.body)
   end
+
+  def random_in_category(category)
+    response = conn.get("/jokes/random?category=#{category}")
+    parse(response.body)
+  end
 end
