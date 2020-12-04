@@ -24,4 +24,9 @@ class TacoService
     response = conn.get("/contributions/#{user}/")
     parse(response.body)
   end
+
+  def ingredients_by_type(input)
+    response = conn.get("/contributors/#{input}/")
+    parse(response.body)
+  end
 end
