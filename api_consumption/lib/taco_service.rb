@@ -19,4 +19,9 @@ class TacoService
     response = conn.get('/random/?full-taco=true')
     parse(response.body)
   end
+
+  def contributions(user)
+    response = conn.get("/contributions/#{user}/")
+    parse(response.body)
+  end
 end
