@@ -14,4 +14,9 @@ class TacoService
     response = conn.get('/random/')
     parse(response.body)
   end
+
+  def random_taco
+    response = conn.get('/random/?full-taco=true')
+    parse(response.body)
+  end
 end
